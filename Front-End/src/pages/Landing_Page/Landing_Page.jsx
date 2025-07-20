@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import navigate hook
 import Background from '../../components/backgrounds/Background';
 import './Landing_Page.css';
 
 const Landing_Page = () => {
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate(); 
 
   const handleHover = () => setHovered(true);
   const handleLeave = () => setHovered(false);
-  const handleClick = () => setClicked(true);
+  const handleClick = () => {
+    setClicked(true);
+
+    setTimeout(() => {
+      navigate('/login'); 
+    }, 600);
+  };
 
   return (
     <>
@@ -29,7 +37,6 @@ const Landing_Page = () => {
         onClick={handleClick}
       />
       <h1 className="MT">HEALTH BOX</h1>
-      <Background />
     </>
   );
 };

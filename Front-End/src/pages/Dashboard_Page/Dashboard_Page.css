@@ -8,13 +8,14 @@ body {
 }
 
 .Dashboard {
-  text-align: center;
-  font-size: 3rem;
-  color: #1f2937;
-  margin-top: -100px;
-  margin-bottom: 100px;
-  position: relative;
-  z-index: 10;
+    font-size: 2.5rem;
+    font-weight: 400;
+    position: absolute;
+    transform: translateX(-50%);
+    margin-top: -100px;
+    left: 50%;
+    color: #1f1f2edb;
+    z-index: 10;
 }
 
 .dashboard-container {

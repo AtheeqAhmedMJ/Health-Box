@@ -79,3 +79,34 @@ body {
 .fall-right {
   animation: fallParabolaRight 2.4s linear forwards;
 }
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 1024px) {
+  .MT {
+    font-size: 3rem;
+  }
+
+  .logo {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .MT {
+    font-size: 2.5rem;
+  }
+
+  .logo {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .MT {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 200px;
+  }
+}

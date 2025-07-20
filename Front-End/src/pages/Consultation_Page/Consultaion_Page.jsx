@@ -6,9 +6,11 @@ import './Consultation_Page.css';
 const Consultaion_Page = () => {
   return (
     <>
-        <h1 className='Consultation'>CONSULTATION  PANEL</h1>
-        <Background />
-        <SideBar />
+      <h1 className='Consultation'>CONSULTATION  PANEL</h1>
+     <div className="appointment-container">
+      <div className="appointment-card">With Appointment</div>
+      <div className="appointment-card">Without Appointment</div>
+      </div>
     </>
   )
 }

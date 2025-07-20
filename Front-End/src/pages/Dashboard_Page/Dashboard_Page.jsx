@@ -36,8 +36,6 @@ const Dashboard_Page = () => {
 
   return (
     <>
-      <Background />
-      <SideBar />
       <h1 className="Dashboard">DASHBOARD</h1>
       <div className="dashboard-container">
         <div className="cards-wrapper">
