@@ -1,0 +1,100 @@
+.with-appointment-page {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.appointment-container2 {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.appointment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.appointment-row:hover {
+  transform: translateY(-2px);
+}
+
+.index-circle {
+  background-color: #dcd6f7;
+  color: #5c4db1;
+  width: 32px;
+  height: 32px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+.name-age {
+  flex: 1;
+  margin-left: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.arrow-icon {
+  margin-right: 1rem;
+  color: #7a5af5;
+  font-size: 1.2rem;
+}
+
+.status-icon {
+  color: #7a5af5;
+  font-size: 1.2rem;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.page-btn {
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.9rem;
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.page-btn.active,
+.page-btn:hover {
+  background-color: #7a5af5;
+  color: white;
+}

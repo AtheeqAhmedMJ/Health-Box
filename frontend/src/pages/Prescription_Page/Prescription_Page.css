@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+.body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #dec9f94b, #e9dbf75c);
+  min-height: 100vh;
+  overflow: auto;
+}
+
+/* Main container */
+.medication-form-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #dec9f92e, #e9dbf731);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.medication-form-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.medication-form-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #1f1f2edb;
+  margin-bottom: 30px;
+}
+
+/* Form layout */
+.medication-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.medication-box {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.medication-box label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.medication-box input,
+.medication-box select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+/* Add button */
+.styled-button {
+  margin-top: 30px;
+  padding: 12px 20px;
+  background-color: #a887b2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #916c9d;
+}
+
+/* Medication list */
+.medications-list {
+  margin-top: 40px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.medications-list h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1f1f2edb;
+}
+
+.medications-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.medications-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #444;
+}
+
+.medications-list li:last-child {
+  border-bottom: none;
+}
+
+.medications-list em {
+  color: #a887b2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medication-box {
+    flex: 1 1 100%;
+  }
+
+  .medication-form-container {
+    padding: 30px 20px;
+    margin: 40px 10px;
+  }
+}

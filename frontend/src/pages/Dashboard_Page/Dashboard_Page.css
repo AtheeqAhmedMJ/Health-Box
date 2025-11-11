@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  overflow: auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dec9f9, #e9dbf7);
+}
+
+.Dashboard {
+  font-size: 2.5rem;
+  font-weight: 400;
+  position: relative;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #1f1f2edb;
+  z-index: 10;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 100%;
+}
+
+.dashboard-card {
+  background: linear-gradient(135deg, #dec9f970, #e9dbf770);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform: scale(1);
+  min-width: 0; /* Prevents overflow */
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.dashboard-card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #A887B2;
+}
+
+.dashboard-card svg {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px;
+}
+
+/* Tablet & Below */
+@media (max-width: 1024px) {
+  .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .Dashboard {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .Dashboard {
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+
+  .dashboard-container {
+    padding: 20px 10px;
+  }
+
+  .dashboard-card p {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-card h2 {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+  }
+}

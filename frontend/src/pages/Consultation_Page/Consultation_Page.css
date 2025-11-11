@@ -1,0 +1,49 @@
+.consultation-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.Consultation {
+  font-size: 2.5rem;
+  font-weight: 400;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1f1f2edb;
+}
+
+.appointment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 0px;
+  flex-wrap: wrap;  
+} 
+
+.appointment-card {
+  width: 350px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 40px; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 23px;
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.appointment-card:hover {
+  transform: translateY(-5px);
+}

@@ -1,0 +1,15 @@
+.WelcomeMGS{
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #1f1f2edb;
+  font-size: 3.5rem;
+  transition: transform 0.2s ease;
+  z-index: 11;
+}
+.WelcomeMGS:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
