@@ -4,6 +4,7 @@ import com.healthbox.hms_backend.modules.patients.Patient;
 import com.healthbox.hms_backend.modules.patients.PatientRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -19,14 +20,26 @@ public class AppointmentService {
 
     // Create a new appointment
     public Appointment create(Appointment a) {
-        // Ensure the patient exists
+        // 1. Ensure the patient exists
         if (!patientRepo.existsById(a.getPatientPhno())) {
             throw new IllegalArgumentException("No patient found with phone number: " + a.getPatientPhno());
         }
+
+        // 2. Prevent duplicate appointment for the same patient on same date
+        if (appointmentRepo.existsByPatientPhnoAndDate(a.getPatientPhno(), a.getDate())) {
+            throw new IllegalArgumentException("Appointment already exists for this patient on " + a.getDate());
+        }
+
+        // 3. Prevent appointments in the past
+        if (a.getDate().isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Appointment date cannot be in the past.");
+        }
+
+        // 4. Save if all good
         return appointmentRepo.save(a);
     }
 
-    // Get all appointments (raw)
+    // Get all appointments
     public List<Appointment> getAll() {
         return appointmentRepo.findAll();
     }
