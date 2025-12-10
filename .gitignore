@@ -6,3 +6,5 @@
 
 # Maven build outputs
 target/
+
+node_modules/
