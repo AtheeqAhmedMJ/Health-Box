@@ -1,4 +1,5 @@
 /Users/atheeqahmed/Desktop/Engineering/Health-Box/backend/src/main/java/com/healthbox/hms_backend/HospitalManagementSystemApplication.java
+/Users/atheeqahmed/Desktop/Engineering/Health-Box/backend/src/main/java/com/healthbox/hms_backend/config/WebConfig.java
 /Users/atheeqahmed/Desktop/Engineering/Health-Box/backend/src/main/java/com/healthbox/hms_backend/modules/appointments/Appointment.java
 /Users/atheeqahmed/Desktop/Engineering/Health-Box/backend/src/main/java/com/healthbox/hms_backend/modules/appointments/AppointmentController.java
 /Users/atheeqahmed/Desktop/Engineering/Health-Box/backend/src/main/java/com/healthbox/hms_backend/modules/appointments/AppointmentRepository.java

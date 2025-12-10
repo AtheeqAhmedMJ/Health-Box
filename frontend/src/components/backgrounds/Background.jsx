@@ -4,7 +4,7 @@ const Background = () => {
   return (
     <div className="background">
       <div className="dune" />
-      <style jsx>{`
+      <style >{`
         .background {
           z-index: -1;
           position: fixed;

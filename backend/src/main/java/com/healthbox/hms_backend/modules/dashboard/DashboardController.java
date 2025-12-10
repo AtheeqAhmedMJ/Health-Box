@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/dashboard/summary")
+@RequestMapping("/api/dashboard")
 public class DashboardController {
 
     private final AppointmentRepository appointmentRepo;
@@ -28,27 +28,28 @@ public class DashboardController {
         this.prescriptionRepo = prescriptionRepo;
     }
 
-    @GetMapping
+    @GetMapping("/summary")
     public Map<String, Object> getDashboardSummary() {
+
         Map<String, Object> summary = new LinkedHashMap<>();
 
         LocalDate today = LocalDate.now();
         YearMonth thisMonth = YearMonth.now();
 
-        // 🧠 1️⃣ Today's Appointments (dynamic)
+        // 1. Today's appointments
         long todaysAppointments = appointmentRepo.findAll().stream()
                 .filter(a -> today.equals(a.getDate()))
                 .count();
 
-        // 🧠 2️⃣ Total Patient Records (dynamic)
+        // 2. Total patients
         long totalPatients = patientRepo.count();
 
-        // 🧠 3️⃣ Monthly Appointments (dynamic)
+        // 3. Monthly appointments
         long monthlyAppointments = appointmentRepo.findAll().stream()
                 .filter(a -> thisMonth.equals(YearMonth.from(a.getDate())))
                 .count();
 
-        // 🧠 4️⃣ Recurring Patients (%) — based on appointments table
+        // 4. Recurring patients
         Map<String, Long> appointmentsPerPatient = appointmentRepo.findAll().stream()
                 .collect(Collectors.groupingBy(a -> a.getPatientPhno(), Collectors.counting()));
 
@@ -56,15 +57,17 @@ public class DashboardController {
                 .filter(count -> count > 1)
                 .count();
 
-        double recurringPercentage = totalPatients == 0 ? 0 : (recurringPatients * 100.0 / totalPatients);
+        double recurringPercentage = totalPatients == 0 ? 0 :
+                (recurringPatients * 100.0 / totalPatients);
 
-        // 🧠 5️⃣ Total Prescriptions This Month (from prescriptions table)
+        // 5. Prescriptions this month
         long prescriptionsThisMonth = prescriptionRepo.findAll().stream()
                 .filter(p -> thisMonth.equals(YearMonth.from(p.getDate())))
                 .count();
 
-        // 🧠 6️⃣ Appointments Graph Data (past 7 days)
+        // 6. Graph data (last 7 days)
         LocalDate weekStart = today.minusDays(6);
+
         Map<String, Long> appointmentsByDay = appointmentRepo.findAll().stream()
                 .filter(a -> !a.getDate().isBefore(weekStart))
                 .collect(Collectors.groupingBy(
@@ -73,13 +76,12 @@ public class DashboardController {
                         Collectors.counting()
                 ));
 
-        // Fill missing days with 0 so graph stays continuous
+        // fill missing dates
         for (int i = 0; i < 7; i++) {
-            LocalDate date = weekStart.plusDays(i);
-            appointmentsByDay.putIfAbsent(date.toString(), 0L);
+            LocalDate d = weekStart.plusDays(i);
+            appointmentsByDay.putIfAbsent(d.toString(), 0L);
         }
 
-        // ✅ Response sent to frontend — all live from DB
         summary.put("todaysAppointments", todaysAppointments);
         summary.put("totalPatients", totalPatients);
         summary.put("monthlyAppointments", monthlyAppointments);
