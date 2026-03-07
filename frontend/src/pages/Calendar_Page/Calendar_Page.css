@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+.Calendar {
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #1f1f2edb;
+  z-index: 10;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.calendar-card {
+  background: linear-gradient(135deg, #dec9f970, #e9dbf770);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  min-width: 300px;
+  max-width: 800px;
+  flex: 1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.calendar-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.calendar-card h2 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.date-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.doctor-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.doctor-column {
+  min-width: 200px;
+  flex: 1;
+}
+
+.doctor-column h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.slot {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.slot.free {
+  background: rgba(255,255,255,0.6);
+}
+
+.slot.booked {
+  background: rgba(168,135,178,0.25);
+}
+
+.slot.available {
+  background: rgba(120, 200, 160, 0.25);
+  border: 1px dashed rgba(120, 200, 160, 0.5);
+}
+
+.slot.free:hover,
+.slot.available:hover,
+.slot.booked:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .calendar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

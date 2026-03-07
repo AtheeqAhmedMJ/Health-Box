@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SideBar.css';
+
 import {
   FaHome,
   FaUserMd,
@@ -7,11 +8,15 @@ import {
   FaFileInvoiceDollar,
   FaPrint,
   FaUser,
+  FaCalendarAlt
 } from 'react-icons/fa';
+
 import { MdDashboard } from 'react-icons/md';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const SideBar = () => {
+
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,34 +34,79 @@ const SideBar = () => {
       onMouseLeave={() => setIsExpanded(false)}
     >
       <ul>
-        <li className={isActive('/') ? 'active' : ''} onClick={() => handleNavigate('/')}>
+
+        {/* HOME */}
+        <li
+          className={isActive('/') ? 'active' : ''}
+          onClick={() => handleNavigate('/')}
+        >
           <FaHome className="icon" />
           {isExpanded && <span>Home</span>}
         </li>
-        <li className={isActive('/dashboard') ? 'active' : ''} onClick={() => handleNavigate('/dashboard')}>
+
+        {/* DASHBOARD */}
+        <li
+          className={isActive('/dashboard') ? 'active' : ''}
+          onClick={() => handleNavigate('/dashboard')}
+        >
           <MdDashboard className="icon" />
           {isExpanded && <span>Dashboard</span>}
         </li>
-        <li className={isActive('/consultation') ? 'active' : ''} onClick={() => handleNavigate('/consultation')}>
+
+        {/* CALENDAR (MAIN ENTRY POINT) */}
+        <li
+          className={isActive('/calendar') ? 'active' : ''}
+          onClick={() => handleNavigate('/calendar')}
+        >
+          <FaCalendarAlt className="icon" />
+          {isExpanded && <span>Calendar</span>}
+        </li>
+
+        {/* CONSULTATION */}
+        <li
+          className={isActive('/consultation') ? 'active' : ''}
+          onClick={() => handleNavigate('/consultation')}
+        >
           <FaUserMd className="icon" />
           {isExpanded && <span>Consultation</span>}
         </li>
-        <li className={isActive('/prescription') ? 'active' : ''} onClick={() => handleNavigate('/prescription')}>
+
+        {/* PRESCRIPTION */}
+        <li
+          className={isActive('/prescription') ? 'active' : ''}
+          onClick={() => handleNavigate('/prescription')}
+        >
           <FaFilePrescription className="icon" />
           {isExpanded && <span>Prescription</span>}
         </li>
-        <li className={isActive('/billing') ? 'active' : ''} onClick={() => handleNavigate('/billing')}>
+
+        {/* BILLING */}
+        <li
+          className={isActive('/billing') ? 'active' : ''}
+          onClick={() => handleNavigate('/billing')}
+        >
           <FaFileInvoiceDollar className="icon" />
           {isExpanded && <span>Billing</span>}
         </li>
-        <li className={isActive('/printing') ? 'active' : ''} onClick={() => handleNavigate('/printing')}>
+
+        {/* PRINTING */}
+        <li
+          className={isActive('/printing') ? 'active' : ''}
+          onClick={() => handleNavigate('/printing')}
+        >
           <FaPrint className="icon" />
           {isExpanded && <span>Printing</span>}
         </li>
-        <li className={isActive('/user') ? 'active' : ''} onClick={() => handleNavigate('/user')}>
+
+        {/* USER / PROFILE */}
+        <li
+          className={isActive('/user') ? 'active' : ''}
+          onClick={() => handleNavigate('/user')}
+        >
           <FaUser className="icon" />
           {isExpanded && <span>User</span>}
         </li>
+
       </ul>
     </div>
   );
