@@ -90,11 +90,11 @@ Health Box is an end-to-end healthcare management system built for clinics and h
 ## Architecture
 
 Frontend (React)
-↓
+->
 Backend (Spring Boot)
-↓
+->
 PostgreSQL Database
-↓
+->
 Reports / Inventory / Billing / EMR
 
 ---
