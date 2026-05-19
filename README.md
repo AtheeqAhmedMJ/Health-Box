@@ -99,10 +99,3 @@ Reports / Inventory / Billing / EMR
 
 ---
 
-## Quick Start
-
-### Backend
-
-```bash
-cd backend
-./mvnw spring-boot:run
