@@ -1,0 +1,14 @@
+package com.healthbox.hms_backend;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class HospitalManagementSystemApplicationTests {
+
+    @Test
+    void contextLoads() {
+        // Verify Spring context loads successfully
+    }
+
+}

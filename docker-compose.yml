@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: healthbox-db
+    environment:
+      POSTGRES_DB: hms
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - hms_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthbox-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: healthbox-backend
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/hms
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      JWT_SECRET: 9hklsjSTS+3sH5UY5y6zsc81TEuJTsWxZfaQOC5dz2o=
+      JWT_EXPIRATION: 86400000
+      FRONTEND_URL: http://localhost:5173,http://localhost:3000
+      PORT: 8080
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: 587
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-}
+      RAZORPAY_WEBHOOK_SECRET: ${RAZORPAY_WEBHOOK_SECRET:-}
+      PLATFORM_FEE_PAISE: 75
+      SUPERADMIN_USERNAME: superadmin
+      SUPERADMIN_PASSWORD: SecurePassword123!
+      SUPERADMIN_EMAIL: admin@healthbox.io
+      SUPERADMIN_PHNO: +919999999999
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - healthbox-network
+    restart: unless-stopped
+
+volumes:
+  hms_pgdata:
+
+networks:
+  healthbox-network:
+    driver: bridge

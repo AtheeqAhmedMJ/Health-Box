@@ -1,0 +1,31 @@
+# Backend
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/bin/
+backend/.vscode/
+backend/node_modules/
+*.class
+*.jar
+*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/build/
+frontend/.parcel-cache
+
+# IDE
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+
+# Docker
+docker-compose.override.yml
